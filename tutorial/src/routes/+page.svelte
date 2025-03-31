@@ -1,12 +1,7 @@
 <script lang="ts">
 	let userName = $state('');
 
-	$effect(() => {
-		if (userName) {
-			console.log(`I will send the name to the database, 
-            currently it is: ${userName}`);
-		}
-	});
+	$inspect(userName);
 </script>
 
 <h1>username</h1>
