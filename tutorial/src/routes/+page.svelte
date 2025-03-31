@@ -1,9 +1,10 @@
-<script lang="ts">
-	let userName = $state('');
+<script>
+	import UserInput from '$lib/components/UserInput.svelte';
 
-	$inspect(userName);
+	let data = $props();
+	$inspect(data);
 </script>
 
-<h1>username</h1>
-<input type="text" bind:value={userName} />
-<p>username: {userName}</p>
+<UserInput userName="jw">
+	<h1>This is passed</h1>
+</UserInput>
