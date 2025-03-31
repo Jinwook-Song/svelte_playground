@@ -1,14 +1,14 @@
-<script>
-	let count = $state(0);
-	let userInfo = $derived(count === 0 ? '초기값' : `${count} 값이 있습니다.`);
+<script lang="ts">
+	let userName = $state('');
 
-	function increment() {
-		count += 1;
-	}
+	$effect(() => {
+		if (userName) {
+			console.log(`I will send the name to the database, 
+            currently it is: ${userName}`);
+		}
+	});
 </script>
 
-<div>
-	<p>Count: {count}</p>
-	<button onclick={increment}>증가</button>
-	<p>User Info: {userInfo}</p>
-</div>
+<h1>username</h1>
+<input type="text" bind:value={userName} />
+<p>username: {userName}</p>
