@@ -36,6 +36,9 @@
   ];
 
   let selectedChapterNumber = $state(1);
+  let selectedChapter = $derived(
+    chapters.find((chapter) => chapter.number === selectedChapterNumber),
+  );
 
   function selectChapter(chapter) {
     selectedChapterNumber = chapter.number;
@@ -65,20 +68,9 @@
     </ul>
     <div class="chapter-info">
       <h3 class="chapter-strapline italic mb-s">
-        Understanding Visas, Residency, and Legal Essentials
+        {selectedChapter.title}
       </h3>
-      <p>
-        Moving to Spain involves navigating a labyrinth of bureaucratic
-        processes that can feel overwhelming at first. This chapter breaks down
-        the essential steps required to secure your visa, establish residency,
-        and handle other legal formalities. Whether you’re planning a short-term
-        stay or seeking permanent residency, understanding Spain’s legal
-        framework is crucial. We’ll explore the different types of visas
-        available, from student to work visas, and provide tips on how to
-        streamline your application process. Additionally, this chapter covers
-        essential documentation, such as obtaining a Número de Identidad de
-        Extranjero (NIE), which is your key to unlocking many services in Spain.
-      </p>
+      <p>{selectedChapter.excerpt}</p>
     </div>
   </div>
 </section>
