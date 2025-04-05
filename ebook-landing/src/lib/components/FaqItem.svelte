@@ -1,3 +1,19 @@
+<script>
+  import chevronDown from '$assets/icons/chevron-down.svg';
+
+  let { faq, isExpanded, ...props } = $props();
+</script>
+
+<button class="container" class:container-expanded={isExpanded} {...props}>
+  <div class="question-and-answer">
+    <p class="question mb-s">{faq.question}</p>
+    <p class="answer">
+      {faq.answer}
+    </p>
+  </div>
+  <img src={chevronDown} alt="" />
+</button>
+
 <style>
   .container {
     display: flex;
@@ -25,7 +41,7 @@
   button img {
     width: 24px;
     height: 24px;
-    transition: transform 0.3s linear;
+    transition: transform 150ms linear;
   }
 
   .question {
